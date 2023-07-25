@@ -5,13 +5,20 @@ import { getAllAlbums } from '../redux/actions';
 import Album from '../components/Album';
 import Search from '../components/Search';
 import AddTrack from '../components/AddTrack';
+import RemoveAlbum from '../components/RemoveAlbum';
 
 export default function Home() {
   const dispatch = useDispatch();
   const albums = useSelector((state) => state.albums);
 
-  const [addModal, setAddModal] = useState({
+  const [addTrackModal, setAddTrackModal] = useState({
     albumId: null,
+    isOpen: false,
+  });
+
+  const [removeAlbumModal, setRemoveAlbumModal] = useState({
+    albumId: null,
+    albumTitle: '',
     isOpen: false,
   });
 
@@ -34,15 +41,29 @@ export default function Home() {
         <ul className='px-4 lg:px-6'>
           {albums.length > 0 ? (
             albums.map((album) => (
-              <Album key={album.id} data={album} openAddModal={setAddModal} />
+              <Album
+                key={album.id}
+                data={album}
+                openAddModal={setAddTrackModal}
+                openRemoveModal={setRemoveAlbumModal}
+              />
             ))
           ) : (
             <li>Nenhum álbum cadastrado.</li>
           )}
         </ul>
 
-        {addModal.isOpen && (
-          <AddTrack albumId={addModal.albumId} closeAddModal={setAddModal} />
+        {addTrackModal.isOpen && (
+          <AddTrack
+            albumId={addTrackModal.albumId}
+            closeAddModal={setAddTrackModal}
+          />
+        )}
+        {removeAlbumModal.isOpen && (
+          <RemoveAlbum
+            albumData={removeAlbumModal}
+            closeModal={setRemoveAlbumModal}
+          />
         )}
       </div>
     </div>

@@ -1,10 +1,17 @@
 /* eslint-disable react/prop-types */
 import { RiAddFill, RiCloseLine } from 'react-icons/ri';
 
-export default function Album({ data, openAddModal }) {
+export default function Album({ data, openAddModal, openRemoveModal }) {
   const handleOpenAddModal = () => {
     openAddModal({
       albumId: data.id,
+      isOpen: true,
+    });
+  };
+  const handleOpenRemoveModal = () => {
+    openRemoveModal({
+      albumId: data.id,
+      albumTitle: data.name,
       isOpen: true,
     });
   };
@@ -20,7 +27,10 @@ export default function Album({ data, openAddModal }) {
           >
             <RiAddFill className='text-xl' />
           </button>
-          <button className='bg-red-400 text-white rounded-sm p-1 hover:bg-red-500 transition-all'>
+          <button
+            className='bg-red-400 text-white rounded-sm p-1 hover:bg-red-500 transition-all'
+            onClick={handleOpenRemoveModal}
+          >
             <RiCloseLine className='text-xl' />
           </button>
         </div>

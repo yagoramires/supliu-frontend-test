@@ -19,7 +19,7 @@ export default function RemoveAlbum({ albumData, closeModal }) {
 
   return (
     <div className='min-h-screen w-full flex justify-center items-center bg-[rgba(0,0,0,0.8)] absolute top-0 left-0 '>
-      <div className='w-[90%] max-w-[600px] bg-white rounded-md p-8'>
+      <div className='w-[90%] max-w-[400px] bg-white rounded-md p-8'>
         <h2 className='text-xl text-zinc-400'>
           Tem certeza que deseja apagar o album{' '}
           <span className='font-bold text-black'>{albumData.albumTitle}</span>?

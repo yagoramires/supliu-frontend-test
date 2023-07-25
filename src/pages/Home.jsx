@@ -37,7 +37,7 @@ export default function Home() {
     <div
       className={`bg-[url(/background.png)] bg-no-repeat bg-cover min-h-screen w-full flex justify-center items-center`}
     >
-      <div className='w-[90%] max-w-[800px] bg-[rgba(255,255,255,0.7)] shadow-md min-h-[80vh] relative'>
+      <div className='w-[90%] max-w-[800px] bg-[rgba(255,255,255,0.7)] shadow-md h-[80vh] relative overflow-hidden'>
         <div className='bg-white flex justify-between items-center p-4 lg:p-6 shadow-sm'>
           <img src='/logo.png' alt='' />
           <h2 className='text-3xl text-zinc-500'>Discografia</h2>
@@ -45,7 +45,7 @@ export default function Home() {
 
         <Search />
 
-        <ul className='px-4 lg:px-6'>
+        <ul className='px-4 lg:px-6 max-h-[50vh] overflow-y-auto'>
           {albums.length > 0 ? (
             albums.map((album) => (
               <Album

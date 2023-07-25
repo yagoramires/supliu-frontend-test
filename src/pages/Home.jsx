@@ -20,7 +20,7 @@ export default function Home() {
       className={`bg-[url(/background.png)] bg-no-repeat bg-cover min-h-screen w-full flex justify-center items-center`}
     >
       <div className='w-[90%] max-w-[800px] bg-[rgba(255,255,255,0.7)] shadow-md min-h-[80vh]'>
-        <div className='bg-white flex justify-between items-center px-4 lg:px-6'>
+        <div className='bg-white flex justify-between items-center p-4 lg:p-6'>
           <img src='/logo.png' alt='' />
           <h2 className='text-3xl text-zinc-500'>Discografia</h2>
         </div>

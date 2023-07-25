@@ -1,9 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.mainContainer {
-  background-image: ('/background.png');
-  width: 100%;
-  min-height: 100vh;
-}

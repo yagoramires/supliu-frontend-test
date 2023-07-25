@@ -36,7 +36,8 @@ export default function AddTrack({ closeAddModal, albumId }) {
   return (
     <div className='min-h-screen w-full flex justify-center items-center bg-[rgba(0,0,0,0.8)] absolute top-0 left-0 '>
       <div className='w-[90%] max-w-[600px] bg-white rounded-md p-8'>
-        <div className='w-full flex justify-end'>
+        <div className='w-full flex justify-between mb-2'>
+          <p className='text-xl font-bold'>Adicionar música</p>
           <button
             className='bg-red-400 text-white rounded-sm p-1 hover:bg-red-500 transition-all'
             onClick={handleClose}

@@ -18,7 +18,6 @@ export const getAllAlbums = () => {
   return async (dispatch) => {
     try {
       const res = await api.get('/album', config);
-      console.log(res.data);
 
       const data = {
         current_page: res.data.current_page,
@@ -46,7 +45,6 @@ export const searchAlbums = (query) => {
         `/album?keyword=${query}&limit=10&page=1`,
         config,
       );
-      console.log(res.data);
 
       const data = {
         current_page: res.data.current_page,

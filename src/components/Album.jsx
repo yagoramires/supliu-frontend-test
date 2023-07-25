@@ -1,8 +1,20 @@
 /* eslint-disable react/prop-types */
+import { RiAddFill, RiCloseLine } from 'react-icons/ri';
+
 export default function Album({ data }) {
   return (
     <li>
-      <h2 className='font-bold mb-2'> Álbum: {`${data.name}, ${data.year}`}</h2>
+      <div className='flex items-center justify-between mb-2'>
+        <h2 className='font-bold '>Álbum: {`${data.name}, ${data.year}`}</h2>
+        <div className='flex justify-center items-center gap-2'>
+          <button className='bg-blue-400 text-white rounded-sm p-1 hover:bg-blue-500 transition-all'>
+            <RiAddFill className='text-xl' />
+          </button>
+          <button className='bg-red-400 text-white rounded-sm p-1 hover:bg-red-500 transition-all'>
+            <RiCloseLine className='text-xl' />
+          </button>
+        </div>
+      </div>
       <div className='flex items-center justify-center text-zinc-700 font-medium mb-1'>
         <h3 className='w-[15%] lg:w-[10%]'>Nº</h3>
         <h3 className='flex-1'>Faixa</h3>

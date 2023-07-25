@@ -25,10 +25,16 @@ const rootReducer = (state = initialState, action) => {
       return action.payload;
 
     case CREATE_ALBUM:
-      return action.payload;
+      console.log({ ...state, albums: [...state.albums, action.payload] });
+      return { ...state, albums: [...state.albums, action.payload] };
 
     case DELETE_ALBUM:
-      return action.payload;
+      return {
+        ...state,
+        albums: [
+          ...state.albums.filter((album) => album.id !== action.payload),
+        ],
+      };
 
     case CREATE_TRACK: {
       const selectOldAlbum = state.albums.find(

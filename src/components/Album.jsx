@@ -17,7 +17,7 @@ export default function Album({ data, openAddModal, openRemoveModal }) {
   };
 
   return (
-    <li>
+    <li className='mb-4'>
       <div className='flex items-center justify-between mb-2'>
         <h2 className='font-bold '>Álbum: {`${data.name}, ${data.year}`}</h2>
         <div className='flex justify-center items-center gap-2'>
@@ -35,15 +35,17 @@ export default function Album({ data, openAddModal, openRemoveModal }) {
           </button>
         </div>
       </div>
-      <div className='flex items-center justify-center text-zinc-700 font-medium mb-1'>
-        <h3 className='w-[15%] lg:w-[10%]'>Nº</h3>
-        <h3 className='flex-1'>Faixa</h3>
-        <h3 className='w-[15%] lg:w-[10%]'>Duração</h3>
-      </div>
+      {data?.tracks?.length > 0 && (
+        <div className='flex items-center justify-center text-zinc-700 font-medium mb-1'>
+          <h3 className='w-[15%] lg:w-[10%]'>Nº</h3>
+          <h3 className='flex-1'>Faixa</h3>
+          <h3 className='w-[15%] lg:w-[10%]'>Duração</h3>
+        </div>
+      )}
 
       <ul>
-        {data.tracks.length > 0 ? (
-          data.tracks.map((track) => (
+        {data?.tracks?.length > 0 ? (
+          data?.tracks?.map((track) => (
             <li
               key={track.id}
               className='flex items-center justify-center text-zinc-700 font-medium mb-1'

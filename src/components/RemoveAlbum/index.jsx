@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import { useDispatch } from 'react-redux';
+import { deleteAlbum } from '../../redux/actions';
 
 export default function RemoveAlbum({ albumData, closeModal }) {
   const dispatch = useDispatch();
@@ -14,7 +15,8 @@ export default function RemoveAlbum({ albumData, closeModal }) {
   };
 
   const handleConfirm = () => {
-    // dispatch()
+    dispatch(deleteAlbum(albumData.albumId));
+    handleClose();
   };
 
   return (

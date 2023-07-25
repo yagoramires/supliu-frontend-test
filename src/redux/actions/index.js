@@ -65,37 +65,36 @@ export const searchAlbums = (query) => {
   };
 };
 
-// export const createAlbum = (albumData) => {
-//   return async (dispatch) => {
-//     try {
-//       const res = await api.post('/album', config);
-//       console.log(res);
+export const createAlbum = (albumData) => {
+  return async (dispatch) => {
+    try {
+      const res = await api.post('/album', albumData, config);
+      console.log(res);
 
-//       return dispatch({
-//         action: CREATE_ALBUM,
-//         payload: '',
-//       });
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-// };
+      return dispatch({
+        type: CREATE_ALBUM,
+        payload: res.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 
-// export const deleteAlbum = (id) => {
-//   return async (dispatch) => {
-//     try {
-//       const res = await api.get(`/album/${id}`, config);
-//       console.log(res);
+export const deleteAlbum = (id) => {
+  return async (dispatch) => {
+    try {
+      await api.delete(`/album/${id}`, config);
 
-//       return dispatch({
-//         action: LIST_ALL_ALBUMS,
-//         payload: '',
-//       });
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-// };
+      return dispatch({
+        type: DELETE_ALBUM,
+        payload: id,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 
 export const createTrack = (trackData) => {
   return async (dispatch) => {
@@ -119,7 +118,7 @@ export const createTrack = (trackData) => {
 //       console.log(res);
 
 //       return dispatch({
-//         action: LIST_ALL_ALBUMS,
+//         type: LIST_ALL_ALBUMS,
 //         payload: '',
 //       });
 //     } catch (error) {

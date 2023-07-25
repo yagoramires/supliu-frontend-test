@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-export const api = axios.create({
+const api = axios.create({
   baseURL: 'https://tiao.supliu.com.br/api/',
   timeout: 5000,
 });
+
+export default api;

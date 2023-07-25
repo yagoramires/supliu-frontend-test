@@ -65,7 +65,7 @@ export const searchAlbums = (query) => {
   };
 };
 
-// export const createAlbum = () => {
+// export const createAlbum = (albumData) => {
 //   return async (dispatch) => {
 //     try {
 //       const res = await api.post('/album', config);
@@ -97,21 +97,20 @@ export const searchAlbums = (query) => {
 //   };
 // };
 
-// export const createTrack = () => {
-//   return async (dispatch) => {
-//     try {
-//       const res = await api.post('/track', config);
-//       console.log(res);
+export const createTrack = (trackData) => {
+  return async (dispatch) => {
+    try {
+      const res = await api.post('/track', trackData, config);
 
-//       return dispatch({
-//         action: CREATE_TRACK,
-//         payload: '',
-//       });
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-// };
+      return dispatch({
+        type: CREATE_TRACK,
+        payload: res.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
 
 // export const deleteTrack = (id) => {
 //   return async (dispatch) => {

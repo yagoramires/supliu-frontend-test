@@ -1,13 +1,23 @@
 /* eslint-disable react/prop-types */
 import { RiAddFill, RiCloseLine } from 'react-icons/ri';
 
-export default function Album({ data }) {
+export default function Album({ data, openAddModal }) {
+  const handleOpenAddModal = () => {
+    openAddModal({
+      albumId: data.id,
+      isOpen: true,
+    });
+  };
+
   return (
     <li>
       <div className='flex items-center justify-between mb-2'>
         <h2 className='font-bold '>Álbum: {`${data.name}, ${data.year}`}</h2>
         <div className='flex justify-center items-center gap-2'>
-          <button className='bg-blue-400 text-white rounded-sm p-1 hover:bg-blue-500 transition-all'>
+          <button
+            className='bg-blue-400 text-white rounded-sm p-1 hover:bg-blue-500 transition-all'
+            onClick={handleOpenAddModal}
+          >
             <RiAddFill className='text-xl' />
           </button>
           <button className='bg-red-400 text-white rounded-sm p-1 hover:bg-red-500 transition-all'>

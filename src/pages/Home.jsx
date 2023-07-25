@@ -13,5 +13,5 @@ export default function Home() {
     dispatch(getAllAlbums());
   }, []);
 
-  return <div>Home</div>;
+  return <div className='mainContainer'>Home</div>;
 }

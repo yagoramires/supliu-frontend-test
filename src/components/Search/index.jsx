@@ -32,12 +32,12 @@ export default function Search() {
           name='search'
           type='text'
           {...register('search')}
-          className='flex-1 rounded-full p-2 outline-none'
+          className='flex-1 rounded-full p-2 px-4 outline-none shadow-sm'
         />
         <input
           type='submit'
           value={'Procurar'}
-          className='bg-blue-400 text-white rounded-full py-2 px-4 lg:px-12'
+          className='bg-blue-400 hover:bg-blue-500 transition-all text-white rounded-full py-2 px-4 lg:px-12 cursor-pointer shadow-sm'
         />
       </div>
       {errors.search && (

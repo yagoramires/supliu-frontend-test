@@ -1,6 +1,7 @@
 import api from '../../api/axios';
 
 export const LIST_ALL_ALBUMS = 'LIST_ALL_ALBUMS';
+export const SEARCH_ALBUMS = 'SEARCH_ALBUMS';
 export const CREATE_ALBUM = 'CREATE_ALBUM';
 export const DELETE_ALBUM = 'DELETE_ALBUM';
 export const CREATE_TRACK = 'CREATE_TRACK';
@@ -30,6 +31,34 @@ export const getAllAlbums = () => {
 
       return dispatch({
         type: LIST_ALL_ALBUMS,
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const searchAlbums = (query) => {
+  return async (dispatch) => {
+    try {
+      const res = await api.get(
+        `/album?keyword=${query}&limit=10&page=1`,
+        config,
+      );
+      console.log(res.data);
+
+      const data = {
+        current_page: res.data.current_page,
+        albums: res.data.data,
+        first_page_url: res.data.first_page_url,
+        last_page_url: res.data.last_page_url,
+        next_page_url: res.data.next_page_url,
+        prev_page_url: res.data.prev_page_url,
+      };
+
+      return dispatch({
+        type: SEARCH_ALBUMS,
         payload: data,
       });
     } catch (error) {

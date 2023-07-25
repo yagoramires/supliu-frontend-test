@@ -2,17 +2,24 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { searchSchema } from './schema';
 
+import { useDispatch } from 'react-redux';
+import { searchAlbums } from '../../redux/actions';
+
 export default function Search() {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
     resolver: zodResolver(searchSchema),
   });
 
+  const dispatch = useDispatch();
+
   const submit = (formData) => {
-    console.log(formData);
+    dispatch(searchAlbums(formData.search));
+    reset();
   };
 
   return (

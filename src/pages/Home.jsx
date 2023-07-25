@@ -6,10 +6,7 @@ import Search from '../components/Search';
 
 export default function Home() {
   const dispatch = useDispatch();
-
   const albums = useSelector((state) => state.albums);
-
-  console.log(albums);
 
   useEffect(() => {
     dispatch(getAllAlbums());
@@ -27,15 +24,13 @@ export default function Home() {
 
         <Search />
 
-        {albums.length > 0 ? (
-          albums.map((album) => (
-            <ul key={album.id} className='px-4 lg:px-6'>
-              <Album data={album} />
-            </ul>
-          ))
-        ) : (
-          <p>Nenhum álbum cadastrado.</p>
-        )}
+        <ul className='px-4 lg:px-6'>
+          {albums.length > 0 ? (
+            albums.map((album) => <Album key={album.id} data={album} />)
+          ) : (
+            <li>Nenhum álbum cadastrado.</li>
+          )}
+        </ul>
       </div>
     </div>
   );

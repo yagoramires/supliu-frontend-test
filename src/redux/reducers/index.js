@@ -1,5 +1,6 @@
 import {
   LIST_ALL_ALBUMS,
+  SEARCH_ALBUMS,
   CREATE_ALBUM,
   DELETE_ALBUM,
   CREATE_TRACK,
@@ -18,6 +19,8 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case LIST_ALL_ALBUMS:
+      return action.payload;
+    case SEARCH_ALBUMS:
       return action.payload;
     case CREATE_ALBUM:
       return action.payload;

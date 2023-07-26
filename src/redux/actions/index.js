@@ -21,13 +21,9 @@ export const getAllAlbums = () => {
     try {
       const res = await api.get('/album', config);
 
-      console.log(res);
-
       const data = {
-        current_page: res.data.current_page,
         albums: res.data.data,
-        first_page_url: res.data.first_page_url,
-        last_page_url: res.data.last_page_url,
+        current_page: res.data.current_page,
         next_page_url: res.data.next_page_url,
         prev_page_url: res.data.prev_page_url,
       };
@@ -48,10 +44,8 @@ export const changePage = (URL) => {
       const res = await api.get(URL, config);
 
       const data = {
-        current_page: res.data.current_page,
         albums: res.data.data,
-        first_page_url: res.data.first_page_url,
-        last_page_url: res.data.last_page_url,
+        current_page: res.data.current_page,
         next_page_url: res.data.next_page_url,
         prev_page_url: res.data.prev_page_url,
       };
@@ -82,10 +76,8 @@ export const searchAlbums = (query) => {
       );
 
       const data = {
-        current_page: res.data.current_page,
         albums: res.data.data,
-        first_page_url: res.data.first_page_url,
-        last_page_url: res.data.last_page_url,
+        current_page: res.data.current_page,
         next_page_url: res.data.next_page_url,
         prev_page_url: res.data.prev_page_url,
       };

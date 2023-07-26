@@ -12,8 +12,6 @@ import {
 const initialState = {
   current_page: 1,
   albums: [],
-  first_page_url: null,
-  last_page_url: null,
   next_page_url: null,
   prev_page_url: null,
   selectedAlbum: {},

@@ -1,6 +1,7 @@
 import api from '../../api/axios';
 
 export const LIST_ALL_ALBUMS = 'LIST_ALL_ALBUMS';
+export const VIEW_DETAILS = 'VIEW_DETAILS';
 export const SEARCH_ALBUMS = 'SEARCH_ALBUMS';
 export const CREATE_ALBUM = 'CREATE_ALBUM';
 export const DELETE_ALBUM = 'DELETE_ALBUM';
@@ -35,6 +36,13 @@ export const getAllAlbums = () => {
     } catch (error) {
       console.log(error);
     }
+  };
+};
+
+export const getAlbumDetails = (albumData) => {
+  return {
+    type: VIEW_DETAILS,
+    payload: albumData,
   };
 };
 
@@ -111,18 +119,17 @@ export const createTrack = (trackData) => {
   };
 };
 
-// export const deleteTrack = (id) => {
-//   return async (dispatch) => {
-//     try {
-//       const res = await api.get(`/album/${id}`, config);
-//       console.log(res);
+export const deleteTrack = (id) => {
+  return async (dispatch) => {
+    try {
+      await api.delete(`/track/${id}`, config);
 
-//       return dispatch({
-//         type: LIST_ALL_ALBUMS,
-//         payload: '',
-//       });
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   };
-// };
+      return dispatch({
+        type: DELETE_TRACK,
+        payload: '',
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};

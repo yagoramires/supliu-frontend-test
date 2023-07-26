@@ -1,5 +1,6 @@
 import {
   LIST_ALL_ALBUMS,
+  VIEW_DETAILS,
   SEARCH_ALBUMS,
   CREATE_ALBUM,
   DELETE_ALBUM,
@@ -14,6 +15,7 @@ const initialState = {
   last_page_url: null,
   next_page_url: null,
   prev_page_url: null,
+  selectedAlbum: {},
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -21,11 +23,13 @@ const rootReducer = (state = initialState, action) => {
     case LIST_ALL_ALBUMS:
       return action.payload;
 
+    case VIEW_DETAILS:
+      return { ...state, selectedAlbum: action.payload };
+
     case SEARCH_ALBUMS:
       return action.payload;
 
     case CREATE_ALBUM:
-      console.log({ ...state, albums: [...state.albums, action.payload] });
       return { ...state, albums: [...state.albums, action.payload] };
 
     case DELETE_ALBUM:

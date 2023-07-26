@@ -58,6 +58,14 @@ export default function Details() {
                 {details.year}
               </h3>
 
+              {details?.tracks?.length > 0 && (
+                <div className='flex items-center justify-center text-zinc-700 font-medium mb-1'>
+                  <h3 className='w-[15%] lg:w-[10%]'>Nº</h3>
+                  <h3 className='flex-1'>Faixa</h3>
+                  <h3 className='w-[20%] lg:w-[10%]'>Duração</h3>
+                </div>
+              )}
+
               <ul>
                 {details?.tracks?.length > 0 &&
                   details?.tracks?.map((track) => (
@@ -65,9 +73,9 @@ export default function Details() {
                       key={track.id}
                       className='w-full flex items-center justify-center mb-2'
                     >
-                      <p className='w-[15%]'>{track.number}</p>
+                      <p className='w-[15%] lg:w-[10%]'>{track.number}</p>
                       <p className='flex-1'>{track.title}</p>
-                      <p className='w-[15%]'>
+                      <p className='w-[20%] lg:w-[10%]'>
                         {secondToMinutes(Number(track.duration))}
                       </p>
                       <button
@@ -87,10 +95,10 @@ export default function Details() {
           )}
 
           <button
-            className='absolute bottom-4 right-4 bg-blue-400 hover:bg-blue-500 transition-all text-white py-2 px-4 rounded-full flex items-center gap-2'
+            className='absolute text-sm md:text-base bottom-4 right-4 bg-blue-400 hover:bg-blue-500 transition-all text-white py-2 px-4 rounded-full flex items-center gap-2'
             onClick={handleOpenAddModal}
           >
-            <RiAddFill className='text-xl' />
+            <RiAddFill className='text-base md:text-xl' />
             Adicionar Música
           </button>
         </div>

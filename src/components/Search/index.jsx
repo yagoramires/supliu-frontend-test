@@ -23,7 +23,7 @@ export default function Search() {
   };
 
   return (
-    <form onSubmit={handleSubmit(submit)} className='p-4 lg:p-6'>
+    <form onSubmit={handleSubmit(submit)} className='p-2 md:p-4 lg:p-6 mb-2'>
       <label htmlFor='search' className='text-sm text-zinc-500'>
         Digite uma palavra chave
       </label>

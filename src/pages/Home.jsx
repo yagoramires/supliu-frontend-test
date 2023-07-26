@@ -35,18 +35,18 @@ export default function Home() {
     <div
       className={`bg-[url(/background.png)] bg-no-repeat bg-cover min-h-screen w-full flex justify-center items-center`}
     >
-      <div className='w-[90%] max-w-[800px] bg-[rgba(255,255,255,0.7)] shadow-md h-[80vh] relative overflow-hidden flex flex-col justify-between'>
+      <div className='w-[90%] max-w-[800px] bg-[rgba(255,255,255,0.7)] shadow-md h-[90vh] md:h-[80vh] relative overflow-hidden flex flex-col justify-between'>
         <div>
-          <div className='bg-white flex justify-between items-center p-4 lg:p-6 shadow-sm'>
+          <div className='bg-white flex justify-between items-center p-2 md:p-4 lg:p-6 shadow-sm'>
             <Link to='/'>
-              <img src='/logo.png' alt='' />
+              <img src='/logo.png' alt='logo' className='w-[120px] md:w-auto' />
             </Link>
-            <h2 className='text-3xl text-zinc-500'>Discografia</h2>
+            <h2 className='text-xl md:text-3xl text-zinc-500'>Discografia</h2>
           </div>
 
           <Search />
 
-          <ul className='px-4 lg:px-6 max-h-[50vh] overflow-y-auto'>
+          <ul className='px-4 lg:px-6 max-h-[55vh] md:max-h-[50vh] overflow-y-auto'>
             {albums.length > 0 ? (
               albums.map((album) => (
                 <Album
@@ -63,10 +63,10 @@ export default function Home() {
         <Pagination />
 
         <button
-          className='absolute bottom-4 right-4 bg-blue-400 hover:bg-blue-500 transition-all text-white py-2 px-4 rounded-full flex items-center gap-2'
+          className='absolute text-sm md:text-base bottom-4 right-4 bg-blue-400 hover:bg-blue-500 transition-all text-white py-2 px-4 rounded-full flex items-center gap-2'
           onClick={handleOpenAddAlbumModal}
         >
-          <RiAddFill className='text-xl' />
+          <RiAddFill className='text-base md:text-xl' />
           Novo Álbum
         </button>
       </div>

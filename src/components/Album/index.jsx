@@ -49,7 +49,7 @@ export default function Album({ data, openRemoveModal }) {
         <div className='flex items-center justify-center text-zinc-700 font-medium mb-1'>
           <h3 className='w-[15%] lg:w-[10%]'>Nº</h3>
           <h3 className='flex-1'>Faixa</h3>
-          <h3 className='w-[15%] lg:w-[10%]'>Duração</h3>
+          <h3 className='w-[20%] lg:w-[10%]'>Duração</h3>
         </div>
       )}
 
@@ -62,7 +62,7 @@ export default function Album({ data, openRemoveModal }) {
             >
               <p className='w-[15%] lg:w-[10%] '>{track.number}</p>
               <p className='flex-1'>{track.title}</p>
-              <p className='w-[15%] lg:w-[10%]'>
+              <p className='w-[20%] lg:w-[10%]'>
                 {secondToMinutes(Number(track.duration))}
               </p>
             </li>

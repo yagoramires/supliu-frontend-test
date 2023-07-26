@@ -13,7 +13,7 @@ export default function Pagination() {
   };
 
   return (
-    <div className='p-4 flex items-center justify-center gap-4 '>
+    <div className='p-4 flex items-center justify-start md:justify-center gap-2 md:gap-4 '>
       {page > 1 && (
         <button
           className='border-2 border-zinc-800 w-8 text-center rounded-md text-zinc-800 font-bold hover:border-blue-500 hover:text-blue-500 transition-all'

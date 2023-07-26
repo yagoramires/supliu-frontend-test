@@ -113,6 +113,8 @@ export const createAlbum = (albumData) => {
     try {
       const res = await api.post('/album', albumData, config);
 
+      toast.success('Álbum adicionado com sucesso!');
+
       return dispatch({
         type: CREATE_ALBUM,
         payload: res.data,
@@ -130,6 +132,8 @@ export const deleteAlbum = (id) => {
   return async (dispatch) => {
     try {
       await api.delete(`/album/${id}`, config);
+
+      toast.success('Álbum removido com sucesso!');
 
       return dispatch({
         type: DELETE_ALBUM,
@@ -149,6 +153,8 @@ export const createTrack = (trackData) => {
     try {
       const res = await api.post('/track', trackData, config);
 
+      toast.success('Música adicionada com sucesso!');
+
       return dispatch({
         type: CREATE_TRACK,
         payload: res.data,
@@ -166,6 +172,8 @@ export const deleteTrack = (id) => {
   return async (dispatch) => {
     try {
       await api.delete(`/track/${id}`, config);
+
+      toast.success('Música removida com sucesso!');
 
       return dispatch({
         type: DELETE_TRACK,

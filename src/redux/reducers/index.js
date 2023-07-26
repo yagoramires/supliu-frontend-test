@@ -59,7 +59,15 @@ const rootReducer = (state = initialState, action) => {
     }
 
     case DELETE_TRACK:
-      return action.payload;
+      return {
+        ...state,
+        selectedAlbum: {
+          ...state.selectedAlbum,
+          tracks: state.selectedAlbum.tracks.filter(
+            (track) => track.id !== action.payload,
+          ),
+        },
+      };
 
     default:
       return state;

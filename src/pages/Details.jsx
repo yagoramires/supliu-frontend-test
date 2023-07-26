@@ -42,8 +42,8 @@ export default function Details() {
               </h3>
 
               <ul>
-                {details.tracks.length > 0 &&
-                  details.tracks.map((track) => (
+                {details?.tracks?.length > 0 &&
+                  details?.tracks?.map((track) => (
                     <li
                       key={track.id}
                       className='w-full flex items-center justify-center mb-2'

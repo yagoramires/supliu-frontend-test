@@ -126,7 +126,7 @@ export const deleteTrack = (id) => {
 
       return dispatch({
         type: DELETE_TRACK,
-        payload: '',
+        payload: id,
       });
     } catch (error) {
       console.log(error);

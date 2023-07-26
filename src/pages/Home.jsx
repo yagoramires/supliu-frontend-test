@@ -8,6 +8,7 @@ import AddTrack from '../components/AddTrack';
 import RemoveAlbum from '../components/RemoveAlbum';
 import AddAlbum from '../components/AddAlbum';
 import Pagination from '../components/Pagination';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -41,7 +42,9 @@ export default function Home() {
       <div className='w-[90%] max-w-[800px] bg-[rgba(255,255,255,0.7)] shadow-md h-[80vh] relative overflow-hidden flex flex-col justify-between'>
         <div>
           <div className='bg-white flex justify-between items-center p-4 lg:p-6 shadow-sm'>
-            <img src='/logo.png' alt='' />
+            <Link to='/'>
+              <img src='/logo.png' alt='' />
+            </Link>
             <h2 className='text-3xl text-zinc-500'>Discografia</h2>
           </div>
 

@@ -51,7 +51,7 @@ export default function Details() {
             Voltar
           </button>
 
-          {details ? (
+          {details && (
             <>
               <h2 className='text-2xl font-bold mt-4 px-4 '>{details.name}</h2>
               <h3 className='text-md font-semibold mb-4 italic px-4'>
@@ -67,7 +67,7 @@ export default function Details() {
               )}
 
               <ul className='lg:px-6 max-h-[55vh] md:max-h-[50vh] overflow-y-auto px-4'>
-                {details?.tracks?.length > 0 &&
+                {details?.tracks?.length > 0 ? (
                   details?.tracks?.map((track) => (
                     <li
                       key={track.id}
@@ -85,13 +85,16 @@ export default function Details() {
                         <RiCloseLine />
                       </button>
                     </li>
-                  ))}
+                  ))
+                ) : (
+                  <div className='w-full flex justify-center items-center h-96'>
+                    <h3 className='font-medium text-xl'>
+                      Nenhuma música cadastrada.
+                    </h3>
+                  </div>
+                )}
               </ul>
             </>
-          ) : (
-            <div className='w-full flex justify-center items-center h-96'>
-              <h3 className='font-medium text-2xl'>Nenhum álbum encontrado.</h3>
-            </div>
           )}
 
           <button

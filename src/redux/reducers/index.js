@@ -1,5 +1,6 @@
 import {
   LIST_ALL_ALBUMS,
+  CHANGE_PAGE,
   VIEW_DETAILS,
   SEARCH_ALBUMS,
   CREATE_ALBUM,
@@ -21,6 +22,9 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case LIST_ALL_ALBUMS:
+      return action.payload;
+
+    case CHANGE_PAGE:
       return action.payload;
 
     case VIEW_DETAILS:

@@ -1,6 +1,7 @@
 import api from '../../api/axios';
 
 export const LIST_ALL_ALBUMS = 'LIST_ALL_ALBUMS';
+export const CHANGE_PAGE = 'CHANGE_PAGE';
 export const VIEW_DETAILS = 'VIEW_DETAILS';
 export const SEARCH_ALBUMS = 'SEARCH_ALBUMS';
 export const CREATE_ALBUM = 'CREATE_ALBUM';
@@ -20,6 +21,8 @@ export const getAllAlbums = () => {
     try {
       const res = await api.get('/album', config);
 
+      console.log(res);
+
       const data = {
         current_page: res.data.current_page,
         albums: res.data.data,
@@ -31,6 +34,30 @@ export const getAllAlbums = () => {
 
       return dispatch({
         type: LIST_ALL_ALBUMS,
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};
+
+export const changePage = (URL) => {
+  return async (dispatch) => {
+    try {
+      const res = await api.get(URL, config);
+
+      const data = {
+        current_page: res.data.current_page,
+        albums: res.data.data,
+        first_page_url: res.data.first_page_url,
+        last_page_url: res.data.last_page_url,
+        next_page_url: res.data.next_page_url,
+        prev_page_url: res.data.prev_page_url,
+      };
+
+      return dispatch({
+        type: CHANGE_PAGE,
         payload: data,
       });
     } catch (error) {

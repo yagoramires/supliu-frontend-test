@@ -33,6 +33,7 @@ export default function Search() {
           type='text'
           {...register('search')}
           className='flex-1 rounded-full p-2 px-4 outline-none shadow-sm'
+          placeholder='Pesquise aqui ...'
         />
         <input
           type='submit'

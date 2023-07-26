@@ -1,19 +1,13 @@
 /* eslint-disable react/prop-types */
 import { useNavigate } from 'react-router-dom';
-import { RiAddFill, RiCloseLine } from 'react-icons/ri';
+import { RiCloseLine } from 'react-icons/ri';
 import { IoOpenOutline } from 'react-icons/io5';
 import { useDispatch } from 'react-redux';
 import { getAlbumDetails } from '../../redux/actions';
 
-export default function Album({ data, openAddModal, openRemoveModal }) {
+export default function Album({ data, openRemoveModal }) {
   const navigate = useNavigate();
 
-  const handleOpenAddModal = () => {
-    openAddModal({
-      albumId: data.id,
-      isOpen: true,
-    });
-  };
   const handleOpenRemoveModal = () => {
     openRemoveModal({
       albumId: data.id,
@@ -34,17 +28,12 @@ export default function Album({ data, openAddModal, openRemoveModal }) {
         <h2 className='font-bold '>Álbum: {`${data.name}, ${data.year}`}</h2>
         <div className='flex justify-center items-center gap-2'>
           <button
-            className='bg-green-400 text-white rounded-sm p-1 hover:bg-green-500 transition-all'
+            className='bg-blue-400 text-white rounded-sm p-1 hover:bg-blue-500 transition-all'
             onClick={handleOpenDetails}
           >
             <IoOpenOutline className='text-xl' />
           </button>
-          <button
-            className='bg-blue-400 text-white rounded-sm p-1 hover:bg-blue-500 transition-all'
-            onClick={handleOpenAddModal}
-          >
-            <RiAddFill className='text-xl' />
-          </button>
+
           <button
             className='bg-red-400 text-white rounded-sm p-1 hover:bg-red-500 transition-all'
             onClick={handleOpenRemoveModal}

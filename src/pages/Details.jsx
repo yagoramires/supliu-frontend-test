@@ -4,16 +4,30 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteTrack } from '../redux/actions';
 
 import { IoIosArrowBack } from 'react-icons/io';
-import { RiCloseLine } from 'react-icons/ri';
+import { RiAddFill, RiCloseLine } from 'react-icons/ri';
+import { useState } from 'react';
+import AddTrack from '../components/AddTrack';
 
 export default function Details() {
   const details = useSelector((state) => state.selectedAlbum);
+
+  const [addTrackModal, setAddTrackModal] = useState({
+    albumId: null,
+    isOpen: false,
+  });
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleBackPage = () => {
     navigate(-1);
+  };
+
+  const handleOpenAddModal = () => {
+    setAddTrackModal({
+      albumId: details.id,
+      isOpen: true,
+    });
   };
 
   const handleDeleteTrack = (id) => {
@@ -24,7 +38,7 @@ export default function Details() {
     <div
       className={`bg-[url(/background.png)] bg-no-repeat bg-cover min-h-screen w-full flex justify-center items-center`}
     >
-      <div className='w-[90%] max-w-[800px] bg-[rgba(255,255,255,0.7)] shadow-md h-[80vh] overflow-hidden p-4'>
+      <div className='w-[90%] max-w-[800px] bg-[rgba(255,255,255,0.7)] shadow-md h-[80vh] overflow-hidden p-4 relative'>
         <div className=''>
           <button
             onClick={handleBackPage}
@@ -66,7 +80,21 @@ export default function Details() {
               <h3 className='font-medium text-2xl'>Nenhum álbum encontrado.</h3>
             </div>
           )}
+
+          <button
+            className='absolute bottom-4 right-4 bg-blue-400 hover:bg-blue-500 transition-all text-white py-2 px-4 rounded-full flex items-center gap-2'
+            onClick={handleOpenAddModal}
+          >
+            <RiAddFill className='text-xl' />
+            Adicionar Música
+          </button>
         </div>
+        {addTrackModal.isOpen && (
+          <AddTrack
+            albumId={addTrackModal.albumId}
+            closeAddModal={setAddTrackModal}
+          />
+        )}
       </div>
     </div>
   );

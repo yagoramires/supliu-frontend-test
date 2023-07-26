@@ -1,23 +1,19 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllAlbums } from '../redux/actions';
 
 import Album from '../components/Album';
 import Search from '../components/Search';
-import AddTrack from '../components/AddTrack';
 import RemoveAlbum from '../components/RemoveAlbum';
 import AddAlbum from '../components/AddAlbum';
 import Pagination from '../components/Pagination';
-import { Link } from 'react-router-dom';
+import { RiAddFill } from 'react-icons/ri';
 
 export default function Home() {
   const dispatch = useDispatch();
   const albums = useSelector((state) => state.albums);
-
-  const [addTrackModal, setAddTrackModal] = useState({
-    albumId: null,
-    isOpen: false,
-  });
 
   const [removeAlbumModal, setRemoveAlbumModal] = useState({
     albumId: null,
@@ -56,7 +52,6 @@ export default function Home() {
                 <Album
                   key={album.id}
                   data={album}
-                  openAddModal={setAddTrackModal}
                   openRemoveModal={setRemoveAlbumModal}
                 />
               ))
@@ -68,18 +63,13 @@ export default function Home() {
         <Pagination />
 
         <button
-          className='absolute bottom-4 right-4 bg-blue-400 hover:bg-blue-500 transition-all text-white py-2 px-4 rounded-full'
+          className='absolute bottom-4 right-4 bg-blue-400 hover:bg-blue-500 transition-all text-white py-2 px-4 rounded-full flex items-center gap-2'
           onClick={handleOpenAddAlbumModal}
         >
+          <RiAddFill className='text-xl' />
           Novo Álbum
         </button>
       </div>
-      {addTrackModal.isOpen && (
-        <AddTrack
-          albumId={addTrackModal.albumId}
-          closeAddModal={setAddTrackModal}
-        />
-      )}
       {addAlbumModal && <AddAlbum closeModal={setAddAlbumModal} />}
       {removeAlbumModal.isOpen && (
         <RemoveAlbum

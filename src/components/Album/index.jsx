@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { RiAddFill, RiCloseLine } from 'react-icons/ri';
 import { IoOpenOutline } from 'react-icons/io5';
 import { useDispatch } from 'react-redux';
-import { getAlbumDetails } from '../redux/actions';
+import { getAlbumDetails } from '../../redux/actions';
 
 export default function Album({ data, openAddModal, openRemoveModal }) {
   const navigate = useNavigate();

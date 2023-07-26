@@ -29,7 +29,7 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(getAllAlbums());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div

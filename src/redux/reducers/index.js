@@ -42,24 +42,6 @@ const rootReducer = (state = initialState, action) => {
         ],
       };
 
-    // case CREATE_TRACK: {
-    //   const selectOldAlbum = state.albums.find(
-    //     (album) => album.id === action.payload.album_id,
-    //   );
-
-    //   const updateAlbum = {
-    //     ...selectOldAlbum,
-    //     tracks: [...selectOldAlbum.tracks, action.payload],
-    //   };
-
-    //   const albumsList = state.albums.filter(
-    //     (album) => album.id !== action.payload.album_id,
-    //   );
-    //   albumsList.push(updateAlbum);
-
-    //   return { ...state, albums: albumsList };
-    // }
-
     case CREATE_TRACK:
       return {
         ...state,

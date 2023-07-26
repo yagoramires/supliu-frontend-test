@@ -7,6 +7,7 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { RiAddFill, RiCloseLine } from 'react-icons/ri';
 import { useState } from 'react';
 import AddTrack from '../components/AddTrack';
+import useConvert from '../hooks/useConvertTime';
 
 export default function Details() {
   const details = useSelector((state) => state.selectedAlbum);
@@ -15,6 +16,8 @@ export default function Details() {
     albumId: null,
     isOpen: false,
   });
+
+  const { secondToMinutes } = useConvert();
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -64,7 +67,9 @@ export default function Details() {
                     >
                       <p className='w-[15%]'>{track.number}</p>
                       <p className='flex-1'>{track.title}</p>
-                      <p className='w-[15%]'>{track.duration}</p>
+                      <p className='w-[15%]'>
+                        {secondToMinutes(Number(track.duration))}
+                      </p>
                       <button
                         className='text-white bg-red-400 hover:bg-red-500 rounded-full'
                         onClick={() => handleDeleteTrack(track.id)}

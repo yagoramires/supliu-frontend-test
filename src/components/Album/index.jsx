@@ -4,6 +4,7 @@ import { RiCloseLine } from 'react-icons/ri';
 import { IoOpenOutline } from 'react-icons/io5';
 import { useDispatch } from 'react-redux';
 import { getAlbumDetails } from '../../redux/actions';
+import useConvert from '../../hooks/useConvertTime';
 
 export default function Album({ data, openRemoveModal }) {
   const navigate = useNavigate();
@@ -15,6 +16,8 @@ export default function Album({ data, openRemoveModal }) {
       isOpen: true,
     });
   };
+
+  const { secondToMinutes } = useConvert();
 
   const dispatch = useDispatch();
   const handleOpenDetails = () => {
@@ -59,7 +62,9 @@ export default function Album({ data, openRemoveModal }) {
             >
               <p className='w-[15%] lg:w-[10%] '>{track.number}</p>
               <p className='flex-1'>{track.title}</p>
-              <p className='w-[15%] lg:w-[10%]'>{track.duration}</p>
+              <p className='w-[15%] lg:w-[10%]'>
+                {secondToMinutes(Number(track.duration))}
+              </p>
             </li>
           ))
         ) : (

@@ -1,5 +1,7 @@
 # Teste para vaga de Desenvolvedor Front-End na Supliu
 
+<a href="https://supliu-frontend-test.vercel.app/" target="_blank"> Deploy do projeto </a>
+
 ## Estrutura do Código
 
 O projeto segue uma estrutura organizada e modular, visando facilitar a manutenção e a escalabilidade. A estrutura de pastas adotada é a seguinte:
@@ -13,12 +15,12 @@ O projeto segue uma estrutura organizada e modular, visando facilitar a manuten�
 
 A aplicação possui um conjunto de funcionalidades que visam oferecer uma experiência completa para os usuários. Algumas das principais funcionalidades incluem:
 
-1- Listagem de álbuns.
-2- Pesquisa por nome do álbum.
-3- Adição de novos álbuns.
-4- Remoção de álbuns cadastrados.
-5- Adição de músicas nos álbuns.
-6- Remoção de músicas cadastradas nos álbuns.
+- Listagem de álbuns.
+- Pesquisa por nome do álbum.
+- Adição de novos álbuns.
+- Remoção de álbuns cadastrados.
+- Adição de músicas nos álbuns.
+- Remoção de músicas cadastradas nos álbuns.
 
 ## Tecnologias
 

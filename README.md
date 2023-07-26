@@ -1,5 +1,7 @@
 # Teste para vaga de Desenvolvedor Front-End na Supliu
 
+<a href="https://supliu-frontend-test.vercel.app/" target="_blank"> Deploy do projeto </a>
+
 ## Estrutura do Código
 
 O projeto segue uma estrutura organizada e modular, visando facilitar a manutenção e a escalabilidade. A estrutura de pastas adotada é a seguinte:

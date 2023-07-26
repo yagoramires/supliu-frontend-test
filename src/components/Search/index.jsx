@@ -1,11 +1,14 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { searchSchema } from './schema';
 
 import { useDispatch } from 'react-redux';
-import { searchAlbums } from '../../redux/actions';
+import { getAllAlbums, searchAlbums } from '../../redux/actions';
 
 export default function Search() {
+  const [search, setSearch] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -19,6 +22,13 @@ export default function Search() {
 
   const submit = (formData) => {
     dispatch(searchAlbums(formData.search));
+    setSearch(true);
+    reset();
+  };
+
+  const handleClearSearch = () => {
+    dispatch(getAllAlbums());
+    setSearch(false);
     reset();
   };
 
@@ -43,6 +53,14 @@ export default function Search() {
       </div>
       {errors.search && (
         <span className='text-sm text-red-500'>{errors.search.message}</span>
+      )}
+      {search && (
+        <button
+          onClick={handleClearSearch}
+          className='w-full text-center text-sm text-zinc-400 mt-2'
+        >
+          Limpar busca
+        </button>
       )}
     </form>
   );

@@ -41,11 +41,11 @@ export default function Details() {
     <div
       className={`bg-[url(/background.png)] bg-no-repeat bg-cover min-h-screen w-full flex justify-center items-center`}
     >
-      <div className='w-[90%] max-w-[800px] bg-[rgba(255,255,255,0.7)] shadow-md h-[80vh] overflow-hidden p-4 relative'>
-        <div className=''>
+      <div className='w-[90%] max-w-[800px] bg-[rgba(255,255,255,0.7)] shadow-md h-[90vh] md:h-[80vh] relative overflow-hidden flex flex-col justify-between py-4'>
+        <div>
           <button
             onClick={handleBackPage}
-            className='flex items-center justify-center gap-1 font-xl font-medium  hover:text-blue-400 transition-all'
+            className='flex items-center justify-center gap-1 font-xl font-medium  hover:text-blue-400 transition-all px-4'
           >
             <IoIosArrowBack />
             Voltar
@@ -53,20 +53,20 @@ export default function Details() {
 
           {details ? (
             <>
-              <h2 className='text-2xl font-bold mt-4'>{details.name}</h2>
-              <h3 className='text-md font-semibold mb-4 italic'>
+              <h2 className='text-2xl font-bold mt-4 px-4 '>{details.name}</h2>
+              <h3 className='text-md font-semibold mb-4 italic px-4'>
                 {details.year}
               </h3>
 
               {details?.tracks?.length > 0 && (
-                <div className='flex items-center justify-center text-zinc-700 font-medium mb-1'>
+                <div className='flex items-center justify-center text-zinc-700 font-medium mb-1 px-4'>
                   <h3 className='w-[15%] lg:w-[10%]'>Nº</h3>
                   <h3 className='flex-1'>Faixa</h3>
                   <h3 className='w-[20%] lg:w-[10%]'>Duração</h3>
                 </div>
               )}
 
-              <ul>
+              <ul className='lg:px-6 max-h-[55vh] md:max-h-[50vh] overflow-y-auto px-4'>
                 {details?.tracks?.length > 0 &&
                   details?.tracks?.map((track) => (
                     <li

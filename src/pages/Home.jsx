@@ -46,7 +46,7 @@ export default function Home() {
 
           <Search />
 
-          <ul className='px-4 lg:px-6 max-h-[55vh] md:max-h-[50vh] overflow-y-auto'>
+          <ul className='px-4 lg:px-6 max-h-[55vh] md:max-h-[50vh] lg:max-h-[45vh] overflow-y-auto'>
             {albums.length > 0 ? (
               albums.map((album) => (
                 <Album

@@ -1,4 +1,5 @@
 import api from '../../api/axios';
+import { toast } from 'react-toastify';
 
 export const LIST_ALL_ALBUMS = 'LIST_ALL_ALBUMS';
 export const CHANGE_PAGE = 'CHANGE_PAGE';
@@ -36,6 +37,9 @@ export const getAllAlbums = () => {
       });
     } catch (error) {
       console.log(error);
+      if (error.response.data.error) {
+        toast.error(error.response.data.error);
+      }
     }
   };
 };
@@ -60,6 +64,9 @@ export const changePage = (URL) => {
       });
     } catch (error) {
       console.log(error);
+      if (error.response.data.error) {
+        toast.error(error.response.data.error);
+      }
     }
   };
 };
@@ -94,6 +101,9 @@ export const searchAlbums = (query) => {
       });
     } catch (error) {
       console.log(error);
+      if (error.response.data.error) {
+        toast.error(error.response.data.error);
+      }
     }
   };
 };
@@ -109,6 +119,9 @@ export const createAlbum = (albumData) => {
       });
     } catch (error) {
       console.log(error);
+      if (error.response.data.error) {
+        toast.error(error.response.data.error);
+      }
     }
   };
 };
@@ -124,6 +137,9 @@ export const deleteAlbum = (id) => {
       });
     } catch (error) {
       console.log(error);
+      if (error.response.data.error) {
+        toast.error(error.response.data.error);
+      }
     }
   };
 };
@@ -139,6 +155,9 @@ export const createTrack = (trackData) => {
       });
     } catch (error) {
       console.log(error);
+      if (error.response.data.error) {
+        toast.error(error.response.data.error);
+      }
     }
   };
 };
@@ -154,6 +173,9 @@ export const deleteTrack = (id) => {
       });
     } catch (error) {
       console.log(error);
+      if (error.response.data.error) {
+        toast.error(error.response.data.error);
+      }
     }
   };
 };

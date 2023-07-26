@@ -15,6 +15,9 @@ const initialState = {
   next_page_url: null,
   prev_page_url: null,
   selectedAlbum: {},
+  total: 0,
+  last_page: 1,
+  type: null,
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -32,11 +35,18 @@ const rootReducer = (state = initialState, action) => {
       return action.payload;
 
     case CREATE_ALBUM:
-      return { ...state, albums: [...state.albums, action.payload] };
+      return {
+        ...state,
+        type: 'ADD_ALBUM',
+        total: state.total + 1,
+        albums: [...state.albums, action.payload],
+      };
 
     case DELETE_ALBUM:
       return {
         ...state,
+        type: 'REMOVE_ALBUM',
+        total: state.total - 1,
         albums: [
           ...state.albums.filter((album) => album.id !== action.payload),
         ],

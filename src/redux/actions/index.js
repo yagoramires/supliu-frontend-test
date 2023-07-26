@@ -26,6 +26,8 @@ export const getAllAlbums = () => {
         current_page: res.data.current_page,
         next_page_url: res.data.next_page_url,
         prev_page_url: res.data.prev_page_url,
+        total: res.data.total,
+        last_page: res.data.last_page,
       };
 
       return dispatch({
@@ -48,6 +50,8 @@ export const changePage = (URL) => {
         current_page: res.data.current_page,
         next_page_url: res.data.next_page_url,
         prev_page_url: res.data.prev_page_url,
+        total: res.data.total,
+        last_page: res.data.last_page,
       };
 
       return dispatch({
@@ -80,6 +84,8 @@ export const searchAlbums = (query) => {
         current_page: res.data.current_page,
         next_page_url: res.data.next_page_url,
         prev_page_url: res.data.prev_page_url,
+        total: res.data.total,
+        last_page: res.data.last_page,
       };
 
       return dispatch({
@@ -96,7 +102,6 @@ export const createAlbum = (albumData) => {
   return async (dispatch) => {
     try {
       const res = await api.post('/album', albumData, config);
-      console.log(res);
 
       return dispatch({
         type: CREATE_ALBUM,
